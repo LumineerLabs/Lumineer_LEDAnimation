@@ -46,9 +46,16 @@ void PulseFill::Step(Adafruit_NeoPixel& strip)
         for (i = 0; i < strip.numPixels(); i++)
         {
             goal = rainbow[localGoal];
-            current = AnimationUtils::GetGradientColor(start, goal, _numSteps, localStep);
+            if(localStep < _numSteps)
+            {
+                current = AnimationUtils::GetGradientColor(start, goal, _numSteps, localStep);
+            }
+            else
+            {
+                current = goal;
+            }
             strip.setPixelColor(i, current);
-            if (localStep == _numSteps)
+            if (localStep == _numSteps + strip.numPixels())
             {
                 localStep = 0;
                 start = goal;
@@ -61,7 +68,7 @@ void PulseFill::Step(Adafruit_NeoPixel& strip)
             }
         }
 
-        if (_startStep == _numSteps)
+        if (_startStep == _numSteps + strip.numPixels())
         {
             _startStep = 0;
             _currentGoal = (_currentGoal + 1) % _numStops;

@@ -131,7 +131,7 @@ void AnimationController::SetDefaults()
             ((SolidColorFlash*)_animation)->_interval = 1000;
             break;
         case LumineerAnimation_PulseFill:
-            ((PulseFill*)_animation)->_numSteps = 10;//_strip.numPixels();
+            ((PulseFill*)_animation)->_numSteps = 5;
             ((PulseFill*)_animation)->_interval = 200;
             break;
         case LumineerAnimation_RainbowGradient:
