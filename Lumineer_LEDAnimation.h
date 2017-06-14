@@ -167,9 +167,6 @@ class RainbowGradient : public RainbowGradientAnimation
         virtual void Initialize(Adafruit_NeoPixel& strip);
         virtual void Trigger();
         virtual void Step(Adafruit_NeoPixel& strip);
-
-    protected:
-        uint8_t _numStops; // what size rainbow to use
 };
 
 class SolidColorRainbowFade : public RainbowGradientAnimation
@@ -245,6 +242,9 @@ class Phaser : public TwoColorGradientAnimation
         virtual void Initialize(Adafruit_NeoPixel& strip);
         virtual void Trigger();
         virtual void Step(Adafruit_NeoPixel& strip);
+
+    protected:
+        uint8_t _numStops = 7;
 };
 
 class VU : public SolidColorAnimation, public OnOffAnimation

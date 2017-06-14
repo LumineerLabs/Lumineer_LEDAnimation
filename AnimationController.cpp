@@ -177,7 +177,7 @@ void AnimationController::SetDefaults()
             ((Phaser*)_animation)->_colors[1] = 0;
             ((Phaser*)_animation)->_interval = 100;
             ((Phaser*)_animation)->_width = 3;
-            ((Phaser*)_animation)->_flowDirection = 2;
+            ((Phaser*)_animation)->_flowDirection = 1;
             break;
         case LumineerAnimation_VU:
             ((VU*)_animation)->_color = 0xFF0000;

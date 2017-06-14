@@ -19,7 +19,7 @@ void Phaser::Initialize(Adafruit_NeoPixel& strip)
         }
         else
         {*/
-            //_colors[0] = AnimationUtils::rainbow7[0];
+            _colors[0] = AnimationUtils::rainbow7[0];
         //}
     //}
     strip.show();
@@ -129,5 +129,17 @@ void Phaser::Step(Adafruit_NeoPixel& strip)
 
 void Phaser::Trigger()
 {
-    // nothing to do
+    _currentGoal = (_currentGoal + 1) % _numStops;
+    if(_numStops > 0)
+    {
+        /*if(_numStops == 10)
+        {
+        _colors[0] = rainbow10[_currentGoal];
+        }
+        else
+        {*/
+        _colors[0] = AnimationUtils::rainbow7[_currentGoal];
+        //}
+    }
+    _startStep = _width;
 }
